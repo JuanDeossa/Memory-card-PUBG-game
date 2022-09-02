@@ -27,4 +27,10 @@ body{
     place-items: center;   
 }
 
-
+.card:first-child{
+    background-color: white;
+    background-image: url("https://i.postimg.cc/SR8KPLXz/AWM.png");
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+}
