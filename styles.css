@@ -16,6 +16,7 @@ body{
     justify-content: center;
     grid-template-columns: repeat(2,1fr);
     gap: 4px;
+    margin: 20px auto 20px;
 }
 .card{
     width: 100%;
@@ -27,10 +28,11 @@ body{
     place-items: center;   
 }
 
-.card:first-child{
-    background-color: white;
-    background-image: url("https://i.postimg.cc/SR8KPLXz/AWM.png");
+/* .card:first-child{
+    background-color: none;
+    background-image: url("");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
-}
+} */
+

@@ -1,3 +1,5 @@
+const cardContainer = document.querySelector(".cards-container");
+
 let DB = {
     m4: 
     {
@@ -40,4 +42,18 @@ let DB = {
     image: "https://i.postimg.cc/xdxqN1Dq/SKS.png",
     },  
 };
+
+//Functions Section.
+function objectLength(obj){return Object.keys(obj).length;}
+function randomRender(obj){
+    console.log("OK");
+    for (let i = 0; i < 2*(objectLength(obj)); i++) {
+        console.log(i);
+        const singleCard = document.createElement("div");
+        singleCard.classList.add("card","card-"+String(i));
+        cardContainer.append(singleCard);
+    }
+}
+
+randomRender(DB);
 
