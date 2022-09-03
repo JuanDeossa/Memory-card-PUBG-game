@@ -23,15 +23,16 @@ body{
     background-color: #fff;
     width: var(--cardHeight);
     height: var(--cardHeight);
-    /* border: 4px solid rgb(194, 165, 0); */
-    border-radius: 15px;
-    font-size: 20px;
-    display: grid;
-    place-items: center;   
-    /* ... */
-    background-image: url("");
+    border: 4px solid rgb(194, 165, 0);
+    border-radius: 15px;  
+}
+.front-face{
+    width: var(--cardHeight);
+    height: var(--cardHeight);
+    border-radius: 15px; 
+    background-image: url("https://i.postimg.cc/VkN0C8FN/Pubg-logo.png");
     background-repeat: no-repeat;
-    background-size: 95%;
+    background-size: 85%;
     background-position: center;
 }
 

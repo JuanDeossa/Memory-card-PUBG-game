@@ -1,4 +1,5 @@
 const cardContainer = document.querySelector(".cards-container");
+const forntPathImage = "";
 
 let DB = [
     {
@@ -47,8 +48,17 @@ function Render(obj){
         console.log(i);
         const singleCard = document.createElement("div");
         singleCard.classList.add("card","card-"+String(i+1));
-        singleCard.style.backgroundImage=`url(${obj[i].image})`;
-        // singleCard.innerText=(obj[i].name);
+
+        const singleCardFront = document.createElement("div");
+        singleCardFront.classList.add("front-face","F-card-"+String(i+1));
+        // singleCardFront.style.backgroundImage="url(https://i.postimg.cc/Kjj6f7yg/Pubg-logo.png)";
+        
+        const singleCardBack = document.createElement("div");
+        singleCardBack.classList.add("Back-face","B-card-"+String(i+1));
+        singleCardBack.style.backgroundImage=`url(${obj[i].image})`;
+
+
+        singleCard.append(singleCardFront,singleCardBack);
         cardContainer.append(singleCard);
     }
 }
