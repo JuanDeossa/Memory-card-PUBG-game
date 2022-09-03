@@ -1,59 +1,77 @@
 const cardContainer = document.querySelector(".cards-container");
 
-let DB = {
-    m4: 
+let DB = [
     {
     name: "M416", 
-    image: "https://i.postimg.cc/02YQdfRT/M4.png",
+    image: "https://i.postimg.cc/ZRjDMKQr/M4.png",
     },  
-    AK: 
     {
     name: "AKM", 
-    image: "https://i.postimg.cc/zXZvgQMw/AK.png",
+    image: "https://i.postimg.cc/mrVtWTVb/AK.png",
     },  
-    Beryl: 
     {
     name: "Beryl", 
-    image: "https://i.postimg.cc/7PTbb4BY/Beryl.png",
+    image: "https://i.postimg.cc/XqJDS6Mt/Beryl.png",
     },  
-    AWM: 
     {
     name: "AWM", 
-    image: "https://i.postimg.cc/SR8KPLXz/AWM.png",
+    image: "https://i.postimg.cc/RhkT1Cx1/AWM.png",
     },  
-    M24: 
     {
     name: "M24", 
-    image: "https://i.postimg.cc/vBCBX2ms/M24.png",
+    image: "https://i.postimg.cc/JhVgyFJB/M24.png",
     },  
-    KAR: 
     {
     name: "Kar98K", 
-    image: "https://i.postimg.cc/QtFCQZhm/KAR.png",
+    image: "https://i.postimg.cc/LXmbDZx9/KAR.png",
     },  
-    SLR: 
     {
     name: "SLR", 
-    image: "https://i.postimg.cc/0N2bNJ4L/SLR.png",
+    image: "https://i.postimg.cc/W4Gy076Y/SLR.png",
     },  
-    SKS: 
     {
     name: "SKS", 
-    image: "https://i.postimg.cc/xdxqN1Dq/SKS.png",
+    image: "https://i.postimg.cc/MpjNpwcS/SKS.png",
     },  
-};
+    {
+    name: "DBS", 
+    image: "https://i.postimg.cc/RhDpvp4h/DBS.png",
+    },  
+]
 
 //Functions Section.
-function objectLength(obj){return Object.keys(obj).length;}
-function randomRender(obj){
+
+function Render(obj){
     console.log("OK");
-    for (let i = 0; i < 2*(objectLength(obj)); i++) {
+    for (let i = 0; i < obj.length ; i++) {
         console.log(i);
         const singleCard = document.createElement("div");
-        singleCard.classList.add("card","card-"+String(i));
+        singleCard.classList.add("card","card-"+String(i+1));
+        singleCard.style.backgroundImage=`url(${obj[i].image})`;
+        // singleCard.innerText=(obj[i].name);
         cardContainer.append(singleCard);
     }
 }
 
-randomRender(DB);
+function randomArray(Array) {
+    Array = Array.concat(Array);
+    let Index = [];
+    for (let i = 0; i < Array.length; i++) {
+        Index.push(i);
+    }
+    console.log(Index);
+    Index.sort(()=>Math.random()-0.5);
+    console.log(Index);
+    let randomArray =[];
+    for (let j = 0; j < Index.length; j++) {
+        randomArray.push(Array[Index[j]]);
+    }
+    console.log(randomArray);
+    return randomArray;
+}
+
+let randomCards = randomArray(DB);
+Render(randomCards);
+
+
 
