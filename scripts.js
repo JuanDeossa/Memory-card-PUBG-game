@@ -1,43 +1,43 @@
 let DB = [
     {
     name: "M416", 
-    image: "https://i.postimg.cc/ZRjDMKQr/M4.png",
+    image: "https://i.postimg.cc/k52fgCVG/M4.png",
     },  
     {
     name: "AKM", 
-    image: "https://i.postimg.cc/mrVtWTVb/AK.png",
+    image: "https://i.postimg.cc/Jz6p80zS/AK.png",
     },  
     {
     name: "Beryl", 
-    image: "https://i.postimg.cc/XqJDS6Mt/Beryl.png",
+    image: "https://i.postimg.cc/prHZCns5/Beryl.png",
     },  
     {
     name: "AWM", 
-    image: "https://i.postimg.cc/RhkT1Cx1/AWM.png",
+    image: "https://i.postimg.cc/yYTffv41/AWM.png",
     },  
     {
     name: "M24", 
-    image: "https://i.postimg.cc/JhVgyFJB/M24.png",
+    image: "https://i.postimg.cc/pT8CKBJt/M24.png",
     },  
     {
     name: "Kar98K", 
-    image: "https://i.postimg.cc/LXmbDZx9/KAR.png",
+    image: "https://i.postimg.cc/t4CB8Wph/KAR.png",
     },  
     {
     name: "SLR", 
-    image: "https://i.postimg.cc/W4Gy076Y/SLR.png",
+    image: "https://i.postimg.cc/gjsvKtw1/SLR.png",
     },  
     {
     name: "SKS", 
-    image: "https://i.postimg.cc/MpjNpwcS/SKS.png",
+    image: "https://i.postimg.cc/KYCQKWLN/SKS.png",
     },  
     {
     name: "DBS", 
-    image: "https://i.postimg.cc/RhDpvp4h/DBS.png",
+    image: "https://i.postimg.cc/0j0CB24W/DBS.png",
     },  
 ]
 const totalMinutes = 1;
-let time = totalMinutes*60 -0;
+let time = totalMinutes*60 -10;
 let numberOfCards = DB.length;
 let isTheGameStarted = false;
 let stopCountDown = false;
@@ -68,8 +68,9 @@ playButton.addEventListener("click",()=>{
     setInterval(startCountDown,1000);
     function startCountDown() {
         if (!stopCountDown) {            
-            const Minutes = Math.floor(time/60);
+            let Minutes = Math.floor(time/60);
             let Seconds = time%60;
+            Minutes = (Minutes<10)? "0" + Minutes : Minutes;
             Seconds = (Seconds<10)? "0" + Seconds : Seconds;
             countDown.innerHTML=`${Minutes}:${Seconds}`;
             time--;
