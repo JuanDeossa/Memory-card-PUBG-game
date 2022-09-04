@@ -45,6 +45,7 @@ let flippedCard = false;
 let firstCard ;
 let secondCard ;
 let lockGame = false;
+let musicPlayed = true;
 
 const cardContainer = document.querySelector(".cards-container");
 const playButton = document.querySelector(".Interaction__Start");
@@ -59,12 +60,15 @@ resetButton.classList.add("hiddenButton");
 countDown.classList.add("hiddenButton");
 playButton.addEventListener("click",()=>{
     isTheGameStarted=true;
-    playButton.innerText="Game in progress";
+    playButton.classList.add("hiddenButton");
     playButton.classList.add("ButtonActive");
     countDown.classList.remove("hiddenButton");
     console.log("Game Started");
     resetButton.addEventListener("click",()=>location.reload());
-    Song.innerHTML=('<audio src="./Pubg-Audio.mp3" autoplay></audio>');
+    if (musicPlayed) {
+        Song.innerHTML=('<audio src="./Pubg-Audio.mp3" autoplay></audio>');
+        musicPlayed = false;
+    }
     setInterval(startCountDown,1000);
     function startCountDown() {
         if (!stopCountDown) {            
