@@ -7,37 +7,37 @@ let DB = [
     name: "AKM", 
     image: "https://i.postimg.cc/mrVtWTVb/AK.png",
     },  
-    // {
-    // name: "Beryl", 
-    // image: "https://i.postimg.cc/XqJDS6Mt/Beryl.png",
-    // },  
-    // {
-    // name: "AWM", 
-    // image: "https://i.postimg.cc/RhkT1Cx1/AWM.png",
-    // },  
-    // {
-    // name: "M24", 
-    // image: "https://i.postimg.cc/JhVgyFJB/M24.png",
-    // },  
-    // {
-    // name: "Kar98K", 
-    // image: "https://i.postimg.cc/LXmbDZx9/KAR.png",
-    // },  
-    // {
-    // name: "SLR", 
-    // image: "https://i.postimg.cc/W4Gy076Y/SLR.png",
-    // },  
-    // {
-    // name: "SKS", 
-    // image: "https://i.postimg.cc/MpjNpwcS/SKS.png",
-    // },  
-    // {
-    // name: "DBS", 
-    // image: "https://i.postimg.cc/RhDpvp4h/DBS.png",
-    // },  
+    {
+    name: "Beryl", 
+    image: "https://i.postimg.cc/XqJDS6Mt/Beryl.png",
+    },  
+    {
+    name: "AWM", 
+    image: "https://i.postimg.cc/RhkT1Cx1/AWM.png",
+    },  
+    {
+    name: "M24", 
+    image: "https://i.postimg.cc/JhVgyFJB/M24.png",
+    },  
+    {
+    name: "Kar98K", 
+    image: "https://i.postimg.cc/LXmbDZx9/KAR.png",
+    },  
+    {
+    name: "SLR", 
+    image: "https://i.postimg.cc/W4Gy076Y/SLR.png",
+    },  
+    {
+    name: "SKS", 
+    image: "https://i.postimg.cc/MpjNpwcS/SKS.png",
+    },  
+    {
+    name: "DBS", 
+    image: "https://i.postimg.cc/RhDpvp4h/DBS.png",
+    },  
 ]
-const totalMinutes = 1.5;
-let time = totalMinutes*60 -70;
+const totalMinutes = 1;
+let time = totalMinutes*60 -0;
 let numberOfCards = DB.length;
 let isTheGameStarted = false;
 let stopCountDown = false;
@@ -51,6 +51,7 @@ const playButton = document.querySelector(".Interaction__Start");
 const resetButton = document.querySelector(".Interaction__Reset");
 const Song = document.querySelector(".song");
 const winnerCard = document.querySelector(".Winner-Card");
+const loserCard = document.querySelector(".Loser-Card");
 const countDown = document.getElementById("countDown");
 
 // Events.
@@ -74,12 +75,20 @@ playButton.addEventListener("click",()=>{
             time--;
             if (time<0) {
                 stopCountDown=true;
+                console.log("LOSER");
+                lockGame = true;
+                loserCard.classList.remove("hiddenCard");
+                playButton.classList.remove("ButtonActive");
+                playButton.classList.add("hiddenButton");
+                resetButton.classList.remove("hiddenButton");
+                countDown.classList.add("stoppedCount");
             }
         }
     }});
 
 //CODE FLOW.
 winnerCard.classList.add("hiddenCard");
+loserCard.classList.add("hiddenCard");
 let randomCards = randomArray(DB);
 Render(randomCards);
 //CODE FLOW.
@@ -145,8 +154,18 @@ function flipCard() {
                         playButton.classList.remove("ButtonActive");
                         playButton.classList.add("hiddenButton");
                         resetButton.classList.remove("hiddenButton");
+                        countDown.classList.add("stoppedCount");
                     }),800);
                 }
+                // else if (matchCounter===numberOfCards && time>0) {    
+                // }{
+                //     console.log("LOSER");
+                //     lockGame = true;
+                //     loserCard.classList.remove("hiddenCard");
+                //     playButton.classList.remove("ButtonActive");
+                //     playButton.classList.add("hiddenButton");
+                //     resetButton.classList.remove("hiddenButton");
+                // }
             }
             else{
                 lockGame = true;

@@ -22,6 +22,9 @@ body{
 #countDown.hiddenButton{
     display: none;
 }
+#countDown.stoppedCount{
+    transform: scale(1);
+}
 .Interaction{
     position: absolute;
     top: 4vh;
