@@ -121,6 +121,16 @@ body{
 .Winner-Card.hiddenCard{
     display: none;
 }
+.Loser-Card{
+    position: absolute;
+    height: var(--winnerHeight);
+    width: calc(var(--winnerHeight)*0.71);
+    border-radius: 30px;
+    border: 4px solid #fff ;
+}
+.Loser-Card.hiddenCard{
+    display: none;
+}
 @media (orientation:portrait) and (min-width:1200px) {
     :root{
         --cardHeight:20vh;
