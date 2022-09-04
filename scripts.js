@@ -46,11 +46,17 @@ let lockGame = false;
 const cardContainer = document.querySelector(".cards-container");
 const playButton = document.querySelector(".Interaction__Start");
 const resetButton = document.querySelector(".Interaction__Reset");
+const Song = document.querySelector(".song");
 
 // Events.
 resetButton.classList.add("hiddenButton");
-playButton.addEventListener("click",()=>{isTheGameStarted=true;playButton.innerText="Game in progress";playButton.classList.add("ButtonActive");console.log("Game Started");});
-resetButton.addEventListener("click",()=>location.reload());
+playButton.addEventListener("click",()=>{
+    isTheGameStarted=true;
+    playButton.innerText="Game in progress";
+    playButton.classList.add("ButtonActive");
+    console.log("Game Started");
+    resetButton.addEventListener("click",()=>location.reload());
+    Song.innerHTML=('<audio src="./Pubg-Audio.mp3" autoplay></audio>')});
 
 let randomCards = randomArray(DB);
 Render(randomCards);
