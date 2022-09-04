@@ -47,6 +47,7 @@ const cardContainer = document.querySelector(".cards-container");
 const playButton = document.querySelector(".Interaction__Start");
 const resetButton = document.querySelector(".Interaction__Reset");
 const Song = document.querySelector(".song");
+const winnerCard = document.querySelector(".Winner-Card");
 
 // Events.
 resetButton.classList.add("hiddenButton");
@@ -58,8 +59,14 @@ playButton.addEventListener("click",()=>{
     resetButton.addEventListener("click",()=>location.reload());
     Song.innerHTML=('<audio src="./Pubg-Audio.mp3" autoplay></audio>')});
 
+
+
+//CODE FLOW.
+winnerCard.classList.add("hiddenCard");
 let randomCards = randomArray(DB);
 Render(randomCards);
+//CODE FLOW.
+
 
 //Functions Section.
 function Render(obj){
@@ -117,6 +124,7 @@ function flipCard() {
                 if (matchCounter===numberOfCards) {
                     matchCounter=0;
                     setTimeout((()=>{
+                        winnerCard.classList.remove("hiddenCard");
                         playButton.classList.remove("ButtonActive");
                         playButton.classList.add("hiddenButton");
                         resetButton.classList.remove("hiddenButton");
