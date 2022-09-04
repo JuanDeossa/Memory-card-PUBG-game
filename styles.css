@@ -2,6 +2,7 @@
 :root{
     --cardHeight:11vh;
     --winnerHeight:60vh;
+    --pubgYellow:#f2a900;
 }
 *{box-sizing: border-box; margin: 0%; padding: 0%;}
 html{font-size: 6.25%;}
@@ -37,7 +38,7 @@ body{
 }
 .Interaction > div{
     height: 100%;
-    background-color: #f2a900;
+    background-color: var(--pubgYellow);
     color: #222;
     font-weight: 700;
     font-family: "Teko", sans-serif;
@@ -52,7 +53,7 @@ body{
 }
 #countDown{
     height: 100%;
-    background-color: #f2a900;
+    background-color: var(--pubgYellow);
     color: #222;
     font-weight: 700;
     font-family: "Teko", sans-serif;
@@ -85,7 +86,7 @@ body{
     background-color: rgb(54, 54, 54);
     width: var(--cardHeight);
     height: var(--cardHeight);
-    border: 4px solid #f2a900;
+    border: 4px solid var(--pubgYellow);
     border-radius: 15px;  
     display: grid;
     place-items: center;
@@ -133,6 +134,54 @@ body{
 }
 .Loser-Card.hiddenCard{
     display: none;
+}
+footer{
+    position: absolute;
+    bottom: 10px;
+    height: var(--footerHeight);
+    justify-self: center;
+    width: calc(100% - 20px);
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    align-items: center;
+    font-family: "Chakra Petch", sans-serif, Arial, Helvetica, sans-serif;
+    font-size: 10em;
+    border-radius: 5px;    
+}
+footer section{
+    width: 70%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 15px;    
+    background-color: var(--pubgYellow);
+    border-radius: 10px; 
+    box-shadow: 2px 2px 1px #202020;
+}
+.Icons{
+    display: flex;
+    align-items: center;
+}
+.Icons a{
+    display: flex;
+    align-items: center;
+}
+.Icons__GH{
+    display: inline-block;
+    background-image: url('https://i.postimg.cc/QCLpgz32/GitHub.png');
+    width: 20px; height: 20px;
+    background-size: contain; 
+    background-repeat: no-repeat;
+}
+.Icons__LI{
+    display: inline-block;
+    background-image: url('https://i.postimg.cc/gJLVZWfy/LinkedIn.png');
+    width: 20px; height: 20px;
+    background-size: contain; 
+    background-repeat: no-repeat;
+    margin-left: 10px;
 }
 @media (orientation:portrait) and (min-width:1200px) {
     :root{
