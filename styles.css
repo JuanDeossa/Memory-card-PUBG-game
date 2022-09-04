@@ -19,6 +19,9 @@ body{
 .Interaction > div.hiddenButton{
     display: none;
 }
+#countDown.hiddenButton{
+    display: none;
+}
 .Interaction{
     position: absolute;
     top: 4vh;
@@ -43,6 +46,24 @@ body{
     justify-content: center;
     align-items: center;
     padding: 2px 10px;
+}
+#countDown{
+    height: 100%;
+    background-color: #f2a900;
+    color: #222;
+    font-weight: 700;
+    font-family: "Teko", sans-serif;
+    letter-spacing: 2px;
+    font-size: 30em;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 10px;
+    transform: scale(1.15);
+    border-width: 3px;
+    margin-left: 20px;
 }
 .Interaction > div:hover{
     transform: scale(1.15);

@@ -7,37 +7,40 @@ let DB = [
     name: "AKM", 
     image: "https://i.postimg.cc/mrVtWTVb/AK.png",
     },  
-    {
-    name: "Beryl", 
-    image: "https://i.postimg.cc/XqJDS6Mt/Beryl.png",
-    },  
-    {
-    name: "AWM", 
-    image: "https://i.postimg.cc/RhkT1Cx1/AWM.png",
-    },  
-    {
-    name: "M24", 
-    image: "https://i.postimg.cc/JhVgyFJB/M24.png",
-    },  
-    {
-    name: "Kar98K", 
-    image: "https://i.postimg.cc/LXmbDZx9/KAR.png",
-    },  
-    {
-    name: "SLR", 
-    image: "https://i.postimg.cc/W4Gy076Y/SLR.png",
-    },  
-    {
-    name: "SKS", 
-    image: "https://i.postimg.cc/MpjNpwcS/SKS.png",
-    },  
-    {
-    name: "DBS", 
-    image: "https://i.postimg.cc/RhDpvp4h/DBS.png",
-    },  
+    // {
+    // name: "Beryl", 
+    // image: "https://i.postimg.cc/XqJDS6Mt/Beryl.png",
+    // },  
+    // {
+    // name: "AWM", 
+    // image: "https://i.postimg.cc/RhkT1Cx1/AWM.png",
+    // },  
+    // {
+    // name: "M24", 
+    // image: "https://i.postimg.cc/JhVgyFJB/M24.png",
+    // },  
+    // {
+    // name: "Kar98K", 
+    // image: "https://i.postimg.cc/LXmbDZx9/KAR.png",
+    // },  
+    // {
+    // name: "SLR", 
+    // image: "https://i.postimg.cc/W4Gy076Y/SLR.png",
+    // },  
+    // {
+    // name: "SKS", 
+    // image: "https://i.postimg.cc/MpjNpwcS/SKS.png",
+    // },  
+    // {
+    // name: "DBS", 
+    // image: "https://i.postimg.cc/RhDpvp4h/DBS.png",
+    // },  
 ]
+const totalMinutes = 1.5;
+let time = totalMinutes*60 -70;
 let numberOfCards = DB.length;
 let isTheGameStarted = false;
+let stopCountDown = false;
 let flippedCard = false;
 let firstCard ;
 let secondCard ;
@@ -48,18 +51,32 @@ const playButton = document.querySelector(".Interaction__Start");
 const resetButton = document.querySelector(".Interaction__Reset");
 const Song = document.querySelector(".song");
 const winnerCard = document.querySelector(".Winner-Card");
+const countDown = document.getElementById("countDown");
 
 // Events.
 resetButton.classList.add("hiddenButton");
+countDown.classList.add("hiddenButton");
 playButton.addEventListener("click",()=>{
     isTheGameStarted=true;
     playButton.innerText="Game in progress";
     playButton.classList.add("ButtonActive");
+    countDown.classList.remove("hiddenButton");
     console.log("Game Started");
     resetButton.addEventListener("click",()=>location.reload());
-    Song.innerHTML=('<audio src="./Pubg-Audio.mp3" autoplay></audio>')});
-
-
+    Song.innerHTML=('<audio src="./Pubg-Audio.mp3" autoplay></audio>');
+    setInterval(startCountDown,1000);
+    function startCountDown() {
+        if (!stopCountDown) {            
+            const Minutes = Math.floor(time/60);
+            let Seconds = time%60;
+            Seconds = (Seconds<10)? "0" + Seconds : Seconds;
+            countDown.innerHTML=`${Minutes}:${Seconds}`;
+            time--;
+            if (time<0) {
+                stopCountDown=true;
+            }
+        }
+    }});
 
 //CODE FLOW.
 winnerCard.classList.add("hiddenCard");
@@ -117,12 +134,12 @@ function flipCard() {
             secondCard = this;
             flippedCard = false;
             if (firstCard.classList[2]===secondCard.classList[2] && firstCard.classList[1]!==secondCard.classList[1]) {
-                console.log("They are match");
                 firstCard.removeEventListener("click",flipCard);
                 secondCard.removeEventListener("click",flipCard);
                 matchCounter++;
-                if (matchCounter===numberOfCards) {
+                if (matchCounter===numberOfCards && time>0) {
                     matchCounter=0;
+                    stopCountDown=true;
                     setTimeout((()=>{
                         winnerCard.classList.remove("hiddenCard");
                         playButton.classList.remove("ButtonActive");
