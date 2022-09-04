@@ -42,20 +42,21 @@ let DB = [
 //Functions Section.
 
 function Render(obj){
-    console.log("OK");
     for (let i = 0; i < obj.length ; i++) {
-        console.log(i);
+        // console.log(i);
         const singleCard = document.createElement("div");
-        singleCard.classList.add("Card","Card-"+String(i+1));
+        singleCard.classList.add("Card","Card-"+String(i+1),`${obj[i].name}`);
+        singleCard.addEventListener("click",flipCard);
 
-        const singleCardFront = document.createElement("div");
-        singleCardFront.classList.add("Front-face","F-card-"+String(i+1));
-        // singleCardFront.style.backgroundImage="url(https://i.postimg.cc/Kjj6f7yg/Pubg-logo.png)";
+        const singleCardFront = document.createElement("img");
+        singleCardFront.classList.add("Front-face");
+        singleCardFront.setAttribute("src","https://i.postimg.cc/BQQR7FRM/Pubg-logo-v3.png");
+        singleCardFront.setAttribute("alt","PUBG-logo");
         
-        const singleCardBack = document.createElement("div");
-        singleCardBack.classList.add("Back-face","B-card-"+String(i+1));
-        singleCardBack.style.backgroundImage=`url(${obj[i].image})`;
-
+        const singleCardBack = document.createElement("img");
+        singleCardBack.classList.add("Back-face");
+        singleCardBack.setAttribute("src",`${obj[i].image}`);
+        singleCardBack.setAttribute("alt",`${obj[i].name}`);
 
         singleCard.append(singleCardFront,singleCardBack);
         cardContainer.append(singleCard);
@@ -68,19 +69,19 @@ function randomArray(Array) {
     for (let i = 0; i < Array.length; i++) {
         Index.push(i);
     }
-    console.log(Index);
     Index.sort(()=>Math.random()-0.5);
-    console.log(Index);
     let randomArray =[];
     for (let j = 0; j < Index.length; j++) {
         randomArray.push(Array[Index[j]]);
     }
-    console.log(randomArray);
     return randomArray;
 }
 
 let randomCards = randomArray(DB);
 Render(randomCards);
 
-
-
+function flipCard() {
+    this.classList.toggle("flipCard");
+    console.log(this);
+    console.log(this.id);
+}
