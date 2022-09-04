@@ -1,5 +1,4 @@
 const cardContainer = document.querySelector(".cards-container");
-const forntPathImage = "";
 
 let DB = [
     {
@@ -47,10 +46,10 @@ function Render(obj){
     for (let i = 0; i < obj.length ; i++) {
         console.log(i);
         const singleCard = document.createElement("div");
-        singleCard.classList.add("card","card-"+String(i+1));
+        singleCard.classList.add("Card","Card-"+String(i+1));
 
         const singleCardFront = document.createElement("div");
-        singleCardFront.classList.add("front-face","F-card-"+String(i+1));
+        singleCardFront.classList.add("Front-face","F-card-"+String(i+1));
         // singleCardFront.style.backgroundImage="url(https://i.postimg.cc/Kjj6f7yg/Pubg-logo.png)";
         
         const singleCardBack = document.createElement("div");
